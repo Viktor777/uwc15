@@ -1,0 +1,36 @@
+{
+  "name": "uwc15",
+  "version": "1.0.0",
+  "description": "Web Challenge 2015 - Final.",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Viktor777/uwc15.git"
+  },
+  "keywords": [
+    "UA",
+    "Web",
+    "Challenge",
+    "2015",
+    "JS",
+    "JavaScript"
+  ],
+  "author": "Viktor777",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Viktor777/uwc15/issues"
+  },
+  "homepage": "https://github.com/Viktor777/uwc15",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-browserify": "^0.5.1",
+    "gulp-jshint": "^1.10.0",
+    "gulp-reactify": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.1",
+    "gulp-sourcemaps": "^1.5.2"
+  }
+}

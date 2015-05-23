@@ -49,19 +49,15 @@ module.exports = (function () {
         return this;
     };
 
-    Searcher.prototype.removeKeyListener = function () {
-        document.removeEventListener('keypress', this.onKey.bind(this));
-
-        return this;
-    };
-
     Searcher.prototype.onKey = function (event) {
 
         if (!_isBusy) {
-            this.value += String.fromCharCode(event.keyCode || event.which);
+            if (this.value.length < START_LENGTH) {
+                this.value += String.fromCharCode(event.keyCode || event.which);
+            }
 
             if (this.isAllowed()) {
-                this.show().removeKeyListener();
+                this.show();
             }
         }
 

@@ -69,7 +69,7 @@ module.exports = (function () {
     };
 
     Input.prototype.onClick = function () {
-        this.enable().hide();
+        this.hide();
         this.input.value = '';
 
         return this;

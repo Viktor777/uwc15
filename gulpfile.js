@@ -1,30 +1,27 @@
 var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
     jshint = require('gulp-jshint'),
-    reactify = require('reactify'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     paths = {
-        scripts: 'app/**/*.{js,jsx}',
+        scripts: 'app/**/*.js',
         styles: 'assets/styles/**/*.sass',
         jshint: [
-            'gulpfile.js', 'app/**/*.{jsx,js}'
+            'gulpfile.js', 'app/**/*.js'
         ]
     };
 
 gulp.task('js', function() {
-    gulp.src('./app/index.jsx')
+    gulp.src('./app/index.js')
         .pipe(browserify({
-            debug: true,
-            transform: ['reactify'],
-            extensions: ['.js', '.jsx']
+            debug: true
         }))
         .on('error', function (error) {
             console.log(error.toString());
             this.emit('end');
         })
-        .pipe(rename('reader.min.js'))
+        .pipe(rename('searcher.min.js'))
         .pipe(gulp.dest('./assets/build'));
 });
 

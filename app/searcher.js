@@ -30,7 +30,6 @@ module.exports = (function () {
                 this.storage[this.storage.length] = this.items[i].textContent;
             }
             this.binarySearch = new Worker('app/binary-search.js');
-            this.input = new Input(this.namespace + '-input', this.onInput.bind(this));
             this.value = '';
 
             this.addWorkerListener();
@@ -52,7 +51,7 @@ module.exports = (function () {
     Searcher.prototype.onKey = function (event) {
 
         if (!_isBusy) {
-            if (this.value.length < START_LENGTH) {
+            if (!this.input && this.value.length < START_LENGTH) {
                 this.value += String.fromCharCode(event.keyCode || event.which);
             }
 
@@ -66,11 +65,11 @@ module.exports = (function () {
 
     Searcher.prototype.show = function () {
 
-        if (this.input) {
-            this.input.show(this.value);
-        } else {
-            this.insert(this.value);
+        if (!this.input) {
+            this.input = new Input(this.namespace + '-input', this.onInput.bind(this));
         }
+        this.input.show(this.value);
+
         this.search();
 
         return this;

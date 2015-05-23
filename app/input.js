@@ -44,6 +44,7 @@ module.exports = (function () {
         } else {
             this.input.value = value;
             this.container.style.display = 'block';
+            this.input.focus();
         }
 
         return this;

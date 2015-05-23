@@ -109,7 +109,7 @@ module.exports = (function () {
     };
 
     Searcher.prototype.disable = function () {
-        _isBusy = true;c
+        _isBusy = true;
 
         return this;
     };
